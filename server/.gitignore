@@ -1,0 +1,17 @@
+# Node.js
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# React Build (❗ 제외하지 않음 – 배포용 build는 포함시킴)
+// ❌ 이 줄 삭제 또는 주석 처리
+# **/build
+
+# Build tool output
+dist/
+
+# 환경변수
+.env
+
+# macOS
+.DS_Store
