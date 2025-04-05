@@ -10,7 +10,7 @@ const Es1BoardPage = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get(`http://localhost:5000/api/major/Engineering/posts/es1?page=${currentPage}&limit=10`);
+      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/major/Engineering/posts/es1?page=${currentPage}&limit=10`);
       setPosts(res.data.posts || []);
       setTotalPages(res.data.totalPages || 1);
       setCurrentPage(res.data.currentPage || 1);
@@ -23,7 +23,7 @@ const Es1BoardPage = () => {
   };
 
   const goToPage = (page) => {
-    axios.get(`http://localhost:5000/api/major/Engineering/posts/es1?page=${page}&limit=10`)
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/major/Engineering/posts/es1?page=${page}&limit=10`)
       .then(res => {
         setPosts(res.data.posts || []);
         setCurrentPage(res.data.currentPage);

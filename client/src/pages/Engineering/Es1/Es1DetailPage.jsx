@@ -16,11 +16,11 @@ const Es1DetatilPage = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/major/Engineering/posts/es1/${postId}`)
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/major/Engineering/posts/es1/${postId}`)
       .then(res => setPost(res.data))
       .catch(() => navigate('/board/es1'));
 
-    axios.get(`http://localhost:5000/api/comments/${postId}`)
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/comments/${postId}`)
       .then(res => setComments(res.data));
   }, [postId, navigate, token]);
 
@@ -29,14 +29,14 @@ const Es1DetatilPage = () => {
     if (!commentInput.trim()) return;
 
     try {
-      await axios.post(`http://localhost:5000/api/comments/${postId}`, {
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/comments/${postId}`, {
         content: commentInput,
       }, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
       setCommentInput('');
-      const res = await axios.get(`http://localhost:5000/api/comments/${postId}`);
+      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/comments/${postId}`);
       setComments(res.data);
     } catch (err) {
       alert('댓글 등록 실패');
@@ -46,11 +46,11 @@ const Es1DetatilPage = () => {
     if (!window.confirm('댓글을 삭제하시겠습니까?')) return;
   
     try {
-      await axios.delete(`http://localhost:5000/api/comments/${commentId}`, {
+      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/comments/${commentId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       // 삭제 후 다시 불러오기
-      const res = await axios.get(`http://localhost:5000/api/comments/${postId}`);
+      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/comments/${postId}`);
       setComments(res.data);
     } catch (err) {
       alert('삭제 실패');

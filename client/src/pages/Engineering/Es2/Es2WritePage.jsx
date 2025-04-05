@@ -12,7 +12,7 @@ const Es2WritePage = () => {
     const token = localStorage.getItem('token');
 
     try {
-      await axios.post('${process.env.REACT_APP_API_BASE_URL}/api/major/Engineering/posts/es2', {
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/major/Engineering/posts/es2`, {
         title,
         content,
         category: 'es2',
