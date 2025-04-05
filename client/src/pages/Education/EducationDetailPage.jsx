@@ -66,7 +66,7 @@ const EducationDetatilPage = () => {
       <p><strong>작성자:</strong> {post.author?.nickname || '익명'}</p>
       <p><strong>작성일:</strong> {new Date(post.createdAt).toLocaleDateString()}</p>
       <hr />
-      <p>{post.content}</p>
+      <p style={{ whiteSpace: 'pre-line' }}>{post.content}</p>
 
       <hr style={{ margin: '30px 0' }} />
       <h3>💬 댓글</h3>
