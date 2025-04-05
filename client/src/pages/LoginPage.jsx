@@ -86,7 +86,7 @@ const styles = {
     justifyContent: 'center',
   },
   bannerImage: {
-    width: '500px',
+    width: 'auto',
     height: 'auto',
     objectFit: 'contain',
   },  
