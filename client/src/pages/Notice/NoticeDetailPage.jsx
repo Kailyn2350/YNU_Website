@@ -21,7 +21,7 @@ const NoticeDetailPage = () => {
       <p><strong>작성자:</strong> {notice.author?.nickname || '익명'}</p>
       <p><strong>작성일:</strong> {new Date(notice.createdAt).toLocaleDateString()}</p>
       <hr />
-      <p>{notice.content}</p>
+      <p style={{ whiteSpace: 'pre-line' }}>{notice.content}</p>
     </div>
   );
 };
