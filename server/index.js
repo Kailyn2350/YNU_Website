@@ -65,10 +65,10 @@ app.listen(PORT, () => {
 
 const path = require('path');
 
-// 정적 파일 서빙 (client/build 안의 JS, CSS 등)
+// 정적 파일 서빙
 app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
 
-// SPA 라우팅 대응 (React Router를 위한 fallback)
-app.get('*', (req, res) => {
+// SPA fallback (API 제외)
+app.get(/^\/(?!api).*/, (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
