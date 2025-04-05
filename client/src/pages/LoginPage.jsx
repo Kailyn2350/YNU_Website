@@ -3,12 +3,14 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import ynuBanner from '../assets/ynu-banner.png';
 
+const isMobile = window.innerWidth <= 768;
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -86,16 +88,16 @@ const styles = {
     justifyContent: 'center',
   },
   bannerImage: {
-    width: 'auto',
+    width: isMobile ? '80%' : '500px',
     height: 'auto',
     objectFit: 'contain',
-  },  
+  },
   box: {
     backgroundColor: '#fff',
-    padding: '40px 30px',
+    padding: isMobile ? '20px' : '40px 30px',
     borderRadius: '15px',
     boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-    width: '100%',
+    width: '90%',
     maxWidth: '400px',
   },
   title: {
@@ -112,13 +114,13 @@ const styles = {
   },
   input: {
     padding: '12px',
-    fontSize: '15px',
+    fontSize: isMobile ? '14px' : '15px',
     borderRadius: '8px',
     border: '1px solid #ccc',
   },
   button: {
     padding: '12px',
-    fontSize: '16px',
+    fontSize: isMobile ? '15px' : '16px',
     borderRadius: '8px',
     border: 'none',
     backgroundColor: '#0077cc',
