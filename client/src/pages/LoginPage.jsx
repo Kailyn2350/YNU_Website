@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import ynuBanner from '../assets/ynu-banner.png';
-import './LoginPage.css';
 
 
 const LoginPage = () => {
@@ -30,45 +29,46 @@ const LoginPage = () => {
       setTimeout(() => {
         navigate('/');
       }, 50);
-
+      
     } catch (err) {
       setErrorMsg('로그인 실패: 아이디 또는 비밀번호 오류');
     }
   };
 
   return (
-    <div className="login-wrapper">
-      <div className="login-banner">
-        <img src={ynuBanner} alt="YNU Banner" />
+    <div style={styles.wrapper}>
+      {/* ✅ 배너 이미지 삽입 */}
+      <div style={styles.banner}>
+        <img src={ynuBanner} alt="YNU Banner" style={styles.bannerImage} />
       </div>
-
-      <div className="login-box">
-        <h2>YNU Every Time</h2>
-        <form onSubmit={handleLogin}>
+  
+      {/* ✅ 로그인 박스 */}
+      <div style={styles.box}>
+        <h2 style={styles.title}>YNU Every Time</h2>
+        <form onSubmit={handleLogin} style={styles.form}>
           <input
             type="text"
             placeholder="아이디"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="login-input"
+            style={styles.input}
           />
           <input
             type="password"
             placeholder="비밀번호"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="login-input"
+            style={styles.input}
           />
-          <button type="submit" className="login-button">로그인</button>
-          {errorMsg && <p className="login-error">{errorMsg}</p>}
+          <button type="submit" style={styles.button}>로그인</button>
+          {errorMsg && <p style={styles.error}>{errorMsg}</p>}
         </form>
-        <p className="login-sub">
-          아직 계정이 없으신가요? <Link to="/register">회원가입</Link>
+        <p style={styles.sub}>
+          아직 계정이 없으신가요? <Link to="/register" style={styles.link}>회원가입</Link>
         </p>
       </div>
     </div>
-
-  );
+  );  
 };
 
 const styles = {
@@ -89,7 +89,7 @@ const styles = {
     width: '500px',
     height: 'auto',
     objectFit: 'contain',
-  },
+  },  
   box: {
     backgroundColor: '#fff',
     padding: '40px 30px',
