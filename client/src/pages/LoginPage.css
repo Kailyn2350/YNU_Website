@@ -1,0 +1,21 @@
+@media (max-width: 768px) {
+    .login-wrapper {
+      padding: 10px;
+    }
+  
+    .login-box {
+      width: 90%;
+    }
+  
+    .login-input,
+    .login-button {
+      width: 100%;
+      font-size: 15px;
+    }
+  
+    .login-banner img {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  
